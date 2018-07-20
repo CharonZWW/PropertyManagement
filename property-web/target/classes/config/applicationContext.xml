@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx" 
+        xmlns:context="http://www.springframework.org/schema/context" 
+        xmlns:cc="http://www.springframework.org/schema/mvc"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"> 
+	
+	
+	<!-- 自动扫描包 -->
+	<context:component-scan base-package="com.wsw.pms.service" />
+	
+	<!-- =====================spring jdbc================= -->
+	
+	<!--配置数据源 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/propertymanagement?useSSL=true"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="12138"></property>
+	</bean>
+	
+	
+
+	<!--配置sqlSessionFactory 并将数据源注入 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!--注入数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!--指定要使用到到mybatis配置文件 -->
+		<property name="configLocation" value="classpath:config/config.xml" />
+		<!--用于配置mapper映射xml -->
+		<property name="mapperLocations" value="classpath*:com/songqi/emart/mapper/*.xml" />
+	</bean>
+
+	<!-- 创建数据映射器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.sws.pms.dao" />
+	</bean>
+
+	<!-- 对数据源进行事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 指明使用注解的方式来管理事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+</beans>
