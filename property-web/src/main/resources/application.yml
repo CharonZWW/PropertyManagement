@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rds-sq-first.cxz4bl3jclhi.ap-northeast-2.rds.amazonaws.com:3306/property_management?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: group_member
+    password: 123456abc
+
+
+

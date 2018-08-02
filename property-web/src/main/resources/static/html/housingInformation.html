@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/housingInformation.css" />
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">万事屋物业管理系统</a>
+				</div>
+				<div id="right-navbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">注销</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<span id="welcome"></span>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">修改密码</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div id="content" class="container-fluid">
+			<div id="cont-left" class="col-md-2">
+				<ul class="nav nav-pills nav-stacked">
+					<li class="dropdown navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							住户管理 <b class="caret"></b>
+						</a>
+						<ul class="nav">
+							<li class="dropMenu onClick">
+								<a href="housingInformation.html"><span style="background-color: rgb(231,231,231);">房屋信息</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="paymentInformation.html"><span>缴费信息</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="repairInformation.html"><span>报修</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="complaintsInformation.html"><span>投诉</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							车辆管理 <b class="caret"></b>
+						</a>
+						<ul class="dropdownMenu nav">
+							<li class="dropMenu">
+								<a href="vehicleAccessManagement.html"><span>车辆进出管理</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="parkingManagement.html"><span>车位管理</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							信息推送
+						</a>
+					</li>
+					<li class="dropdown navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							人员进出管理 <b class="caret"></b>
+						</a>
+						<ul class="dropdownMenu nav">
+							<li class="dropMenu">
+								<a href="#"><span>业主外出</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="outsidersManagement.html"><span>外来人员登记</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="#"><span>智能门禁</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="navOutLi">
+						<a href="#">
+							费用管理
+						</a>
+					</li>
+					<li class="navOutLi">
+						<a href="priceManagement.html">
+							价格管理
+						</a>
+					</li>
+					<li class="dropdown navOutLi">
+						<a href="informationCommunication.html" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							信息交流平台管理 
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="cont-right" class="col-md-10">
+				<div class="panel panel-default cont-panel">
+					<div id="panel-head" class="panel-heading">
+						<ol class="breadcrumb">
+							<li>
+								<a href="#">首页</a>
+							</li>
+							<li class="active">
+								住房管理
+							</li>
+							<li class="active">房屋信息</li>
+						</ol>
+					</div>
+					<!--<div class="panel-body">
+				        面板内容
+				    </div>-->
+					<div id="page-wrapper">
+						<div class="panel panel-default showInfo">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+										查询业主房屋信息
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="selectGroup">
+											<label>栋</label>
+											<select id="selectType" class="form-control selects">
+												<option>1</option>
+												<option>2</option>
+											</select>
+
+										</div>
+										<div class="selectGroup">
+											<label>单元</label>
+											<select id="selectYear" class="form-control selects">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+										</div>
+										<div class="selectGroup">
+											<button id="selectBtn" type="button" class="btn btn-outline btn-primary submitButton">查询</button>
+										</div>
+									</div>
+									<div>
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>门牌号</th>
+													<th>户主姓名</th>
+													<th>联系电话</th>
+													<th>房屋面积</th>
+													<th>水费余额</th>
+													<th>物管费到期时间</th>
+												</tr>
+											</thead>
+											<tbody id="selectEnrollPlan">
+												<tr>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
+											<p id="notice" class="help-block"></p>
+										</table>
+									</div>
+									<!-- /.table-responsive -->
+									<div class="row">
+										<div class="col-sm-6">
+											<!--<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>-->
+										</div>
+										<div class="col-sm-6">
+											<div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+												<ul class="pagination">
+													<li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+														<a href="#">上一页</a>
+													</li>
+													<li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+														<a href="#">1</a>
+													</li>
+													<li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+														<a href="#">2</a>
+													</li>
+													<li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+														<a href="#">3</a>
+													</li>
+													<li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+														<a href="#">下一页</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default showInfo">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion" 
+									   href="#collapseTwo">
+										业主绑定房屋信息审核
+									</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div>
+											<table class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>手机号</th>
+														<th>申请绑定门牌号</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody id="selectEnrollPlan">
+	
+												</tbody>
+												<p id="notice" class="help-block"></p>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script type="text/javascript" src="../js/jquery.1.9.1.js"></script>
+			<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../js/default.js"></script>
+	</body>
+
+</html>

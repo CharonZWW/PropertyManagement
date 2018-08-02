@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq实现二级才拉菜单动画效果</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background-color: #373737;
+            z-index: 9999;
+        }
+
+        a:hover, a:focus {
+            text-decoration: none
+        }
+
+        .mobile-nav ul li a {
+            color: gray;
+            display: block;
+            padding: 1em 5%;
+            border-top: 1px solid #4f4f4f;
+            border-bottom: 1px solid #292929;
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background-color: #373737;
+            z-index: 9999;
+            transition: all 0.3s ease-in;
+        }
+
+        }
+        .mobile-nav ul li a:hover {
+            background-color: #23A1F6;
+            color: #ffffff;
+        }
+
+        .show-nav {
+            transform: translateX(0);
+        }
+
+        .hide-nav {
+            transform: translateX(-220px);
+        }
+
+        /*侧滑关键*/
+        .mobile-nav-taggle {
+            height: 35px;
+            line-height: 35px;
+            width: 35px;
+            background-color: #23A1F6;
+            color: #ffffff;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer
+        }
+
+        .nav.avbar-inverse {
+            position: relative;
+        }
+
+        .nav-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+    </style>
+    <!--<script type="text/javascript" src="../js/bootstrap.min.js">-->
+
+    <!--</script>-->
+
+</head>
+<body>
+<!--手机导航栏-->
+<!--<div id="mobile-menu" class="mobile-nav visible-xs visible-sm">-->
+<!--<ul>-->
+<!--<li><a href="#">首页</a></li>-->
+<!--<li><a href="#">Java</a></li>-->
+<!--<li><a href="#">SVN</a></li>-->
+<!--<li><a href="#">iOS</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--&lt;!&ndash;pc导航栏&ndash;&gt;-->
+<!--<nav class="navbar-inverse visible-lg visible-md" role="navigation">-->
+<!--<div class="container">-->
+<!--<div class="navbar-header">-->
+<!--<a class="navbar-brand" href="#">菜鸟教程</a>-->
+<!--</div>-->
+<!--<div>-->
+<!--<ul class="nav navbar-nav">-->
+<!--<li class="active"><a href="#">iOS</a></li>-->
+<!--<li><a href="#">SVN</a></li>-->
+<!--<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Java</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</nav>-->
+<!--&lt;!&ndash;手机导航栏侧滑&ndash;&gt;-->
+<!--<div class="nav-btn visible-xs visible-sm">-->
+<!--<a href="#" class="mobile-nav-taggle" id="mobile-nav-taggle">-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</a>-->
+<!--</div>-->
+
+<input id="text" type="text"/>
+<button onclick="send()">Send</button>
+<button onclick="closeWebSocket()">Close</button>
+<div id="message">
+</div>
+
+</body>
+<script type="text/javascript">
+    var websocket = null;
+
+    //判断当前浏览器是否支持WebSocket
+    if ('WebSocket' in window) {
+        websocket = new WebSocket("ws://localhost:8080/message");
+    }
+    else {
+        alert('Not support websocket')
+    }
+
+    //连接发生错误的回调方法
+    websocket.onerror = function () {
+        setMessageInnerHTML("error");
+    };
+
+    //连接成功建立的回调方法
+    websocket.onopen = function (event) {
+        setMessageInnerHTML("open");
+    }
+
+    //接收到消息的回调方法
+    websocket.onmessage = function (event) {
+        setMessageInnerHTML(event.data);
+    }
+
+    //连接关闭的回调方法
+    websocket.onclose = function () {
+        setMessageInnerHTML("close");
+    }
+
+    //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function () {
+        websocket.close();
+    }
+
+    //将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+
+    //关闭连接
+    function closeWebSocket() {
+        websocket.close();
+    }
+
+    //发送消息
+    function send() {
+        var message = document.getElementById('text').value;
+        websocket.send(message);
+    }
+</script>
+
+
+    < /html>
