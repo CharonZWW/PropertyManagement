@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>万事屋物业管理系统</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/unicorn.login.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    
+    <body>
+        <div id="loginbox">            
+            <form id="loginform" class="form-vertical" action="index.html" />
+				<p>万事屋物业管理系统</p>
+                <div class="input-group">
+		            <span class="input-group-addon">
+		            	<span class="glyphicon glyphicon-user"></span>
+		            </span> 
+		            <input id="username" type="text" class="form-control" placeholder="请输入用户名">
+		        </div>
+		        <div class="input-group">
+		            <span class="input-group-addon">
+		            	<span class="glyphicon glyphicon-lock"></span>
+		            </span> 
+		            <input id="password" type="password" class="form-control" placeholder="请输入密码">
+		        </div>
+		        <div class="input-group">
+		        	<img alt="验证码" id="verPic" src="" >
+		            <input id="verCode" type="text" class="form-control" placeholder="请输入验证码">
+		            <p id="login-prompt" class="help-block"></p>
+		        </div>
+                <div class="form-actions">
+                    <!--<span class="pull-left"><a href="#" class="flip-link" id="to-recover">切换到教师版 ></a></span>-->
+                    <span class="pull-right"><button id="login" type="button" class="btn btn-primary">登录</button></span>
+                </div>
+            </form>
+            <form id="recoverform" action="#" class="form-vertical" />
+				<p>万事屋物业管理系统</p>
+                <div class="input-group">
+		            <span class="input-group-addon">
+		            	<span class="glyphicon glyphicon-user"></span>
+		            </span> 
+		            <input type="text" class="form-control" placeholder="请输入用户名">
+		        </div>
+		        <div class="input-group">
+		            <span class="input-group-addon">
+		            	<span class="glyphicon glyphicon-lock"></span>
+		            </span> 
+		            <input type="password" class="form-control" placeholder="请输入密码">
+		        </div>
+		        <div class="input-group">
+		            <input type="password" class="form-control" placeholder="请输入验证码">
+		        </div>
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link" id="to-login">&lt; 返回学生版</a></span>
+                    <span class="pull-right"><button type="button" class="btn btn-primary">登录</button></span>
+                </div>
+            </form>
+        </div>
+        
+        <script type="text/javascript" src="../js/jquery.1.9.1.js" ></script>
+        <script type="text/javascript" src="../js/unicorn.login.js" ></script>
+        <script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="../js/login.js" ></script>
+    </body>
+</html>

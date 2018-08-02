@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<document>
+    <class name="visitor" sheetName="外来人员记录表" path="com.wsw.management.domain.VisitorBean">
+        <property name="visitor_id">编号</property>
+        <property name="visitor_h_id">访问的房屋</property>
+        <property name="visitor_m_id">操作的人员</property>
+        <property name="visitor_record_time">访问的时间</property>
+        <property name="visitor_name">访问者的名字</property>
+        <property name="visitor_id_type">证件类型</property>
+        <property name="visitor_id_number">证件号</property>
+    </class>
+
+
+</document>

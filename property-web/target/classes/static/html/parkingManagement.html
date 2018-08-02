@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/parkingManagement.css"/>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">万事屋物业管理系统</a>
+				</div>
+				<div id="right-navbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">注销</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<span id="welcome"></span>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">修改密码</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div id="content" class="container-fluid">
+			<div id="cont-left" class="col-md-2">
+				<ul class="nav nav-pills nav-stacked">
+					<li class="dropdown navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							住户管理 <b class="caret"></b>
+						</a>
+						<ul class="dropdownMenu nav">
+							<li class="dropMenu">
+								<a href="housingInformation.html"><span>房屋信息</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="paymentInformation.html"><span>缴费信息</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="repairInformation.html"><span>报修</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="complaintsInformation.html"><span>投诉</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							车辆管理 <b class="caret"></b>
+						</a>
+						<ul class="nav">
+							<li class="dropMenu">
+								<a href="vehicleAccessManagement.html"><span>车辆进出管理</span></a>
+							</li>
+							<li class="dropMenu onClick">
+								<a href="parkingManagement.html"><span style="background-color: rgb(231,231,231);">车位管理</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							信息推送
+						</a>
+					</li>
+					<li class="dropdown navOutLi">
+						<a href="#" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							人员进出管理 <b class="caret"></b>
+						</a>
+						<ul class="dropdownMenu nav">
+							<li class="dropMenu">
+								<a href="#"><span>业主外出</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="outsidersManagement.html"><span>外来人员登记</span></a>
+							</li>
+							<li class="dropMenu">
+								<a href="#"><span>智能门禁</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="navOutLi">
+						<a href="#">
+							费用管理
+						</a>
+					</li>
+					<li class="navOutLi">
+						<a href="priceManagement.html">
+							价格管理
+						</a>
+					</li>
+					<li class="dropdown navOutLi">
+						<a href="informationCommunication.html" class="dropdown-toggle dropdownToggle" data-toggle="dropdown">
+							信息交流平台管理
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="cont-right" class="col-md-10">
+				<div class="panel panel-default cont-panel">
+					<div id="panel-head" class="panel-heading">
+						<ol class="breadcrumb">
+							<li>
+								<a href="#">首页</a>
+							</li>
+							<li class="active">
+								车辆管理
+							</li>
+							<li class="active">车位管理</li>
+						</ol>
+					</div>
+					<!--<div class="panel-body">
+				        面板内容
+				    </div>-->
+					<div id="page-wrapper">
+						<div class="panel panel-default showInfo">
+							<div class="panel-heading panel1-head">
+								车位管理
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>车位号</th>
+											<th>车位状态</th>
+											<th>租用车位到期时间</th>
+											<th>房屋id</th>
+										</tr>
+									</thead>
+									<tbody id="selectEnrollPlan">
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+									<p id="notice" class="help-block"></p>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script type="text/javascript" src="../js/jquery.1.9.1.js"></script>
+			<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="../js/default.js"></script>
+	</body>
+
+</html>
